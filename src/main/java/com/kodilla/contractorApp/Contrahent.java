@@ -2,14 +2,27 @@ package com.kodilla.contractorApp;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Contrahent {
-    private String name;
-    private String lastName;
-    private String nip;
+    private final String name;
+    private final String lastName;
+    private final String nip;
 
     private Map<String, Adress> list = new HashMap<String, Adress>();
 
+
+    public static Contrahent createContrahent(final Scanner scanner) {
+       String name = scanner.next();
+       String  lastName = scanner.next();
+       String nip = scanner.next();
+
+        return new Contrahent(name, lastName, nip);
+    }
+
+    /*public void putAction(String name, Runnable Adres) {
+        list.put(name, Adres);
+    } */
 
     public Contrahent(String name, String lastName, String nip) {
         this.name = name;
