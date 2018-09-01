@@ -1,17 +1,51 @@
 package com.kodilla.contractorApp;
 
-import javax.sound.midi.Soundbank;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-
-        HashMap<String, Contrahent> kontrahent = new HashMap<>();
-        List<Contrahent> contrahents = new LinkedList<>();
         Scanner in = new Scanner(System.in);
+        List<Contrahent> contrahentsList = new ArrayList<>();
+        Map<String, Adress> adresList = new LinkedHashMap<>();
+        Map<Contrahent, Adress> listOf = new HashMap<>();
+
+        String adresType, street, city;
+        int postCode;
+        String name, lastName, nip;
+
+        System.out.println("Please enter your name: ");
+        name = in.next();
+        System.out.println("Please enter your last name: ");
+        lastName = in.next();
+        System.out.println("Please enter your NIP number: ");
+        nip = in.next();
+
+        Contrahent contrahent = new Contrahent(name, lastName, nip); // contrahentsList.add(new Contrahent(name, lastName, nip));
+        contrahentsList.add(contrahent);
+
+        System.out.println("Add Adres");
+        System.out.println("Enter adres type: ");
+        adresType = in.next();
+        System.out.println("Enter street");
+        street = in.next();
+        System.out.println("Enter post code");
+        postCode = in.nextInt();
+        System.out.println("Enter city");
+        city = in.next();
+
+        Adress adress = adresList.put(adresType, new Adress(street, postCode, city));
+
+        listOf.put(contrahent, adress);
+        //System.out.println(listOf);
+    }
+}
+
+//char quit = 'Y';
+//while(quit == 'Y') {
+
+//System.out.println("Add Contrahent? Press\n 1. Yes \n2. No");
+                /*
+
         System.out.println("Menu: ");
         //Contrahent kontrahent2 = Contrahent.createContrahent(in);
 
@@ -38,7 +72,10 @@ public class Application {
         for(Contrahent s : contrahents) {
             s.see();
         }
-        /*
+
+
+
+
 
         Contrahent kontrahen = Contrahent.createContrahent(in);
 
@@ -66,5 +103,4 @@ public class Application {
 
         //  kontrahent.get("Dostawca").see();
         // kontrahent.put("Dostawca", new Contrahent("Tomasz", "Janicki", "8484848484")).newAdresMap("Bydgoska", 55552, "Torun");\
-    }
-}
+

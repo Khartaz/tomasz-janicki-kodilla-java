@@ -1,28 +1,13 @@
 package com.kodilla.contractorApp;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Contrahent {
     private final String name;
     private final String lastName;
     private final String nip;
 
-    private Map<String, Adress> list = new HashMap<String, Adress>();
-
-
-    public static Contrahent createContrahent(final Scanner scanner) {
-       String name = scanner.next();
-       String  lastName = scanner.next();
-       String nip = scanner.next();
-
-        return new Contrahent(name, lastName, nip);
-    }
-
-    /*public void putAction(String name, Runnable Adres) {
-        list.put(name, Adres);
-    } */
+    private List<Contrahent> contrahentsList = new LinkedList<>();
 
     public Contrahent(String name, String lastName, String nip) {
         this.name = name;
@@ -30,14 +15,69 @@ public class Contrahent {
         this.nip = nip;
     }
 
-    public void newAdresMap(String adresType, String street, int postCode, String city) {
-        list.put(adresType, new Adress(street, postCode, city));
-    }
-
-    public void see() {
-        for(String l : list.keySet()) {
-            System.out.println(list.get(l).toString());
-        }
+    public String toString() {
+        return "Name is: " + name + " " + lastName + " Nip number is: " + nip;
     }
 }
+
+/*
+    public void createContrahent() {
+        Scanner in = new Scanner(System.in);
+
+        String name, lastName, nip;
+        String a = in.next();
+
+        System.out.println("Please enter your name: ");
+        name = in.next();
+        System.out.println("Please enter your last name: ");
+        lastName = in.next();
+        System.out.println("Please enter your NIP number: ");
+        nip = in.next();
+
+        Contrahent s = new Contrahent(name, lastName, nip); // contrahentsList.add(new Contrahent(name, lastName, nip));
+        System.out.println("Add Adres");
+        System.out.println("Enter adres type: ");
+        adresType = in.next();
+        System.out.println("Enter street");
+        street = in.next();
+        System.out.println("Enter post code");
+        postCode = in.nextInt();
+        System.out.println("Enter city");
+        city = in.next();
+
+        contrahentsList.add(s);
+        //adresList.put(adresType, new Adress(street, postCode, city));  Adress f = adresType, new Adress(street, postCode, city);
+    }
+
+
+public void see() {
+        for(String l : adresList.keySet()) {
+            System.out.println(adresList.get(l).toString());
+        }
+    } */
+
+/*
+Przyklad !!!
+public static int getNumberOfRounds() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Please enter number of rounds you wish to play: ");
+        boolean correctValue = false;
+        int value = 0;
+        do {
+            String input = in.next();
+            try {
+                value = Integer.parseInt(input);
+                correctValue = value >= 1;
+                correctValue = true;
+            } catch (Exception e) {
+                System.out.println("Incorrect value.");
+            }
+        } while (!correctValue);
+        return value;
+    }
+
+    Map<Contrahent, Adress> contrahentsInfo = new HashMap<>();
+            contrahentsInfo.put(s, f);
+ */
 
