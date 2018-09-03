@@ -3,13 +3,15 @@ package com.kodilla.contractorApp;
 import java.util.*;
 
 public class Application {
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         List<Contrahent> contrahentsList = new ArrayList<>();
         Map<String, Adress> adresList = new LinkedHashMap<>();
         Map<Contrahent, Adress> listOf = new HashMap<>();
-
-        String adresType, street, city;
+        List<String> adressType = new ArrayList<>();
+        String adresType;
+        String street, city;
         int postCode;
         String name, lastName, nip;
 
@@ -23,7 +25,7 @@ public class Application {
         Contrahent contrahent = new Contrahent(name, lastName, nip); // contrahentsList.add(new Contrahent(name, lastName, nip));
         contrahentsList.add(contrahent);
 
-        System.out.println("Add Adres");
+        System.out.println("Add Adres" );
         System.out.println("Enter adres type: ");
         adresType = in.next();
         System.out.println("Enter street");
@@ -33,12 +35,25 @@ public class Application {
         System.out.println("Enter city");
         city = in.next();
 
-        Adress adress = new Adress(street, postCode, city);
-        Adress ad = adresList.put(adresType, adress);
+        // adresList.put(adresType, new Adress(street, postCode, city));
 
-        listOf.put(contrahent, adress);
-        System.out.println(listOf);
+
+        adresList.put(adresType, new Adress(street, postCode, city));
+        adressType.add(adresType);
+        System.out.println(adresList);
+        /*
+        Adress d = adresList.put(adresType, adress);
+        listOf.put(contrahent, d);
+
+        for(Contrahent s : contrahentsList) {
+            System.out.println(adresList.get(s));
+
+        }
+
+        //System.out.println(adresList);
+        */
     }
+
 }
 
 //char quit = 'Y';
