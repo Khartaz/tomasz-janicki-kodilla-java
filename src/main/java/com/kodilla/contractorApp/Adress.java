@@ -14,12 +14,11 @@ class Adress {
         this.street = street;
         this.postCode = postCode;
         this.city = city;
-        this.adresType = adresType;
     }
 
-    public void newAdresMap(String street, int postCode, String city) {
+    /*public void newAdresMap(String street, int postCode, String city) {
         adresList.put(adresType, new Adress(street, postCode, city));
-    }
+    } */
     public String toString() {
         return "Adres type" + adresType + "Street: " + street + "Post code: " + postCode + "City: " + city;
     }

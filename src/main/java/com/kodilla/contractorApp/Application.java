@@ -33,10 +33,11 @@ public class Application {
         System.out.println("Enter city");
         city = in.next();
 
-        Adress adress = adresList.put(adresType, new Adress(street, postCode, city));
+        Adress adress = new Adress(street, postCode, city);
+        Adress ad = adresList.put(adresType, adress);
 
         listOf.put(contrahent, adress);
-        //System.out.println(listOf);
+        System.out.println(listOf);
     }
 }
 
