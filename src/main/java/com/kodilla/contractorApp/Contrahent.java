@@ -10,7 +10,7 @@ public class Contrahent {
         this.lastName = lastName;
         this.nip = nip;
     }
-
+    @Override
     public String toString() {
         return "Name is: " + name + " " + lastName + " Nip number is: " + nip;
     }

@@ -6,28 +6,19 @@ public class Application {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        List<Contrahent> contrahentsList = new ArrayList<>();
-        Map<String, Adress> adresList = new LinkedHashMap<>();
-        Map<Contrahent, Adress> listOf = new HashMap<>();
-        List<String> adressType = new ArrayList<>();
-        String adresType;
+        Map<Contrahent, List<Adress>> contrahentListMap = new LinkedHashMap<>();
+
         String street, city;
         int postCode;
-        String name, lastName, nip;
 
-        System.out.println("Please enter your name: ");
-        name = in.next();
-        System.out.println("Please enter your last name: ");
-        lastName = in.next();
-        System.out.println("Please enter your NIP number: ");
-        nip = in.next();
 
-        Contrahent contrahent = new Contrahent(name, lastName, nip); // contrahentsList.add(new Contrahent(name, lastName, nip));
-        contrahentsList.add(contrahent);
+        String name = TerminalController.getName();
+        String lastName = TerminalController.getLastName();
+        String nip = TerminalController.getNip();
+
+        Contrahent contrahent = new Contrahent(name, lastName, nip);
 
         System.out.println("Add Adres" );
-        System.out.println("Enter adres type: ");
-        adresType = in.next();
         System.out.println("Enter street");
         street = in.next();
         System.out.println("Enter post code");
@@ -35,12 +26,14 @@ public class Application {
         System.out.println("Enter city");
         city = in.next();
 
-        // adresList.put(adresType, new Adress(street, postCode, city));
+        Adress adress = new Adress(street, postCode, city, AdressType.HOME);
+        contrahentListMap.put(contrahent, Arrays.asList(adress));
+
+        for(Map.Entry entry : contrahentListMap.entrySet()) {
+            System.out.println(entry.getKey().toString() + " " + entry.getValue().toString());
+        }
 
 
-        adresList.put(adresType, new Adress(street, postCode, city));
-        adressType.add(adresType);
-        System.out.println(adresList);
         /*
         Adress d = adresList.put(adresType, adress);
         listOf.put(contrahent, d);
