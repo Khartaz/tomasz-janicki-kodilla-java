@@ -1,23 +1,7 @@
-package com.kodilla.testing;
+package com.kodilla.testing.collection;
 
-import java.util.ArrayList;
-import java.util.List;
-
-class OddNumbersExterminator {
-    public void exterminate(ArrayList<Integer> numbers) {
-        List<Integer> even = new ArrayList<>();
-        for(Integer s : numbers){
-            if(s %2 == 0) {
-                even.add(s);
-            }
-        }
-        System.out.println(even);
-    }
-}
 public class TestingMain {
     public static void main(String[] args) {
-        OddNumbersExterminator even = new OddNumbersExterminator();
-        
 
     }
 }
@@ -55,4 +39,9 @@ SimpleUser simpleUser = new SimpleUser("theForumUser");
         } else {
             System.out.println("Error");
         }
+
+
+
+    }
  */
+
