@@ -3,7 +3,7 @@ package com.kodilla.testing.collection;
 import org.junit.*;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.List;
 
 public class CollectionTestSuite {
     @Before
@@ -16,19 +16,35 @@ public class CollectionTestSuite {
     }
     @Test
     public void testOddNumbersExterminatorEmptyList() {
+        //Given
         OddNumbersExterminator even = new OddNumbersExterminator();
         ArrayList<Integer> test = new ArrayList<>();
-        System.out.println(even.exterminate(test));
+        //When
+        even.exterminate(test);
+        //Then
+        Assert.assertTrue(test.isEmpty());
     }
     @Test
     public void testOddNumbersExterminatorNormalList() {
+        //Given
         OddNumbersExterminator even = new OddNumbersExterminator();
-        ArrayList<Integer> test = new ArrayList<>();
-        Random random = new Random();
-        for(int i=0; i < 10; i++) {
-            test.add(random.nextInt(100));
+        ArrayList<Integer> actual = new ArrayList<>();
+        List<Integer> expected = new ArrayList<>();
+        List<Integer> result;
+        actual.add(1);
+        actual.add(89);
+        actual.add(55);
+        actual.add(24);
+        actual.add(58);
+        //When
+        for(Integer number : actual) {
+            int even2 = number % 2;
+            if (even2 == 0) {
+                expected.add(number);
+            }
         }
-        System.out.println(even.exterminate(test));
-        System.out.println(test);
+        result = even.exterminate(actual);
+        //Then
+        Assert.assertEquals(result, expected);
     }
 }

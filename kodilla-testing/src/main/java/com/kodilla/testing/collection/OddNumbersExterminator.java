@@ -7,8 +7,8 @@ class OddNumbersExterminator {
     public List<Integer> exterminate(ArrayList<Integer> numbers) {
         List<Integer> evens = new ArrayList<>();
         boolean empty = numbers.isEmpty();
-        if(empty == true) {
-            System.out.print("List is empty.");
+        if(empty) {
+            System.out.println("List is empty.");
         }
         for(Integer number : numbers) {
             int even = number % 2;
