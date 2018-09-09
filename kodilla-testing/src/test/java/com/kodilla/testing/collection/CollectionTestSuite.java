@@ -37,12 +37,8 @@ public class CollectionTestSuite {
         actual.add(24);
         actual.add(58);
         //When
-        for(Integer number : actual) {
-            int even2 = number % 2;
-            if (even2 == 0) {
-                expected.add(number);
-            }
-        }
+        expected.add(24);
+        expected.add(58);
         result = even.exterminate(actual);
         //Then
         Assert.assertEquals(result, expected);
