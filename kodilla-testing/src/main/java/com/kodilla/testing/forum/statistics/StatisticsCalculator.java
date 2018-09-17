@@ -1,30 +1,52 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
+public class StatisticsCalculator {
+    int userCount;
+    int postsCount;
+    int commentsCount;
+    double averagePostsPerUser;
+    double averageCommentsPerUser;
+    double averageCommentsPerPost;
 
-public class StatisticsCalc {
-    Statistics statistics;
+    public void calculateAdvStatistics(Statistics statistics) {
+        userCount = statistics.userNames().size();
+        postsCount =  statistics.postsCount();
+        commentsCount = statistics.commentsCount();
 
-    public StatisticsCalc(Statistics statistics) {
-        this.statistics = statistics;
-
+        if(userCount > 0) {
+            averagePostsPerUser = ((double) postsCount) / userCount;
+        }
+        if(userCount > 0) {
+            averageCommentsPerUser = ((double) commentsCount) / userCount;
+        }
+        if(postsCount > 0) {
+            averageCommentsPerPost = ((double) commentsCount) / postsCount;
+        }
     }
-    public int calculateAdvStatistics(Statistics statistics) {
-        List<String> userNames;
-        int postCount;
-        int commentsCount;
 
-
-
+    public int getUserCount() {
+        return userCount;
     }
 
-
-    /*
-    public void showStatistics() {
-
+    public int getPostsCount() {
+        return postsCount;
     }
-    */
+
+    public int getCommentsCount() {
+        return commentsCount;
+    }
+
+    public double getAveragePostsPerUser() {
+        return averagePostsPerUser;
+    }
+
+    public double getAverageCommentsPerUser() {
+        return averageCommentsPerUser;
+    }
+
+    public double getAverageCommentsPerPost() {
+        return averageCommentsPerPost;
+    }
 }
 
 
