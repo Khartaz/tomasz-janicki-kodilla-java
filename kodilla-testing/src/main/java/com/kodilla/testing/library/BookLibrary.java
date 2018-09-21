@@ -24,15 +24,10 @@ public class BookLibrary {
         return bookList;
     }
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> bookList = new ArrayList<>();
         List<Book> result = libraryDatabase.listBooksInHandsOf(libraryUser);
-        if(result.size() == 0) {
+        if(result.isEmpty()) {
             System.out.printf("Nothing in hand");
         }
-        if(result.size() > 0) {
-            return bookList;
-        }
-        bookList = result;
-        return  bookList;
+        return  result;
     }
 }
