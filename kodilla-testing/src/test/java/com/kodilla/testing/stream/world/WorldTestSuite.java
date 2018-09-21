@@ -1,6 +1,7 @@
 package com.kodilla.testing.stream.world;
 
-import com.kodilla.stream.world.Country;
+import com.kodilla.stream.world.Continent;
+import com.kodilla.stream.world.World;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,15 +13,14 @@ public class WorldTestSuiteTestSuite {
     @Test
     public void testGetPeopleQuantity() {
         //Given
-        List<Country> countries = new ArrayList<>();
-        countries.add(new Country(new BigDecimal("23185938492")));
-        countries.add(new Country(new BigDecimal("928493894")));
-        countries.add(new Country(new BigDecimal("958294892384")));
-        countries.add(new Country(new BigDecimal("049203940")));
+        Continent continent = new Continent()
+        List<World> continents = new ArrayList<>();
+        List<Continent> countres = new ArrayList<>();
+
         //When
         BigDecimal peopleQuantity = BigDecimal.ZERO;
-        for(Country contries:countries) {
-            peopleQuantity = peopleQuantity.add(contries.getPeopleQuantity());
+        for(World world1:continents) {
+            peopleQuantity = peopleQuantity.add(world1.getPeopleQuantity());
         }
         //Then
         BigDecimal expectedPeopleQuantity = new BigDecimal("982458528710");
