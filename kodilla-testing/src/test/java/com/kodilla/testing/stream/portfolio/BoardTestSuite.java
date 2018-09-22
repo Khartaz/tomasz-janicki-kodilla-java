@@ -8,9 +8,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
@@ -148,8 +151,10 @@ public class BoardTestSuite {
         long tasks = project.getTaskLists().stream()
                 .filter(averageTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> t.getCreated().compareTo(LocalDate.now()))
+                .map(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
                 .count();
+
+        //System.out.println(tasks);
         //Then
         Assert.assertEquals(3, tasks);
     }
