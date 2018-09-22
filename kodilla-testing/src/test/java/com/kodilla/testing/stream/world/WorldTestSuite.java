@@ -33,16 +33,17 @@ public class WorldTestSuite {
         Country ugada = new Country("Ugada", new BigDecimal("4882"));
         Continent africa = new Continent("Africa", Arrays.asList(algeria, cameroon, mali, ugada));
 
-        /*World world = new World(Arrays.asList(europe, austrialia, africa));
-        World world1 = new World();
+        World world = new World(Arrays.asList(europe, austrialia, africa));
 
         //When
-        BigDecimal peopleQuantity = BigDecimal.ZERO;
-        for(World w:world) {
-            peopleQuantity = peopleQuantity.add(w.getPeopleQuantity());
-        }
+        BigDecimal peopleQuantity = world.getPeopleQuantity();
         //Then
-        BigDecimal expectedPeopleQuantity = new BigDecimal("982458528710");
-        Assert.assertEquals(expectedPeopleQuantity, peopleQuantity); */
+        BigDecimal expectedPeopleQuantity = new BigDecimal("213410103");
+        Assert.assertEquals(expectedPeopleQuantity, peopleQuantity);
     }
 }
+/*
+for(World w:world) {
+        peopleQuantity = peopleQuantity.add(w.getPeopleQuantity());
+        }
+  */
