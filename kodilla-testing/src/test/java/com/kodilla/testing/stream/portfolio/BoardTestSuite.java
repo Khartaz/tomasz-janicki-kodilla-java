@@ -13,6 +13,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.toList;
 
@@ -148,14 +149,22 @@ public class BoardTestSuite {
         //When
         List<TaskList> averageTasks = new ArrayList<>();
         averageTasks.add(new TaskList("In progress"));
-        long tasks = project.getTaskLists().stream()
+        long tasks = Math.round(
+                project.getTaskLists().stream()
+                        .filter(averageTasks::contains)
+                        .flatMap(tl -> tl.getTasks().stream())
+                        .mapToLong(t -> DAYS.between(t.getCreated(), LocalDate.now()))
+                        .average().getAsDouble());
+        //System.out.println(tasks);
+        //Then
+        Assert.assertEquals(10, tasks);
+    }
+}
+
+/*
+double tasks = project.getTaskLists().stream()
                 .filter(averageTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
-                .count();
-
-        //System.out.println(tasks);
-        //Then
-        Assert.assertEquals(3, tasks);
-    }
-}
+                .filter()
+ */
