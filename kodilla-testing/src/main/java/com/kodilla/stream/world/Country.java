@@ -4,10 +4,12 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Country {
+    private final String name;
     private final BigDecimal peopleQuantity;
 
-    public Country(final BigDecimal peopleQuantity) {
+    public Country(final String name, final BigDecimal peopleQuantity) {
         this.peopleQuantity = peopleQuantity;
+        this.name = name;
     }
 
     public BigDecimal getPeopleQuantity() {

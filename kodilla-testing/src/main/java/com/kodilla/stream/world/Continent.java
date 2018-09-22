@@ -4,16 +4,19 @@ import java.util.List;
 import java.util.Objects;
 
 public class Continent {
+    private final String name;
     private final List<Country> countries;
 
-    public Continent(final List<Country> countries) {
+    public Continent(final String name,final List<Country> countries) {
+        this.name = name;
         this.countries = countries;
     }
 
     @Override
     public String toString() {
         return "Continent{" +
-                "countries=" + countries +
+                "name='" + name + '\'' +
+                ", countries=" + countries +
                 '}';
     }
 
@@ -26,11 +29,12 @@ public class Continent {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Continent continent = (Continent) o;
-        return Objects.equals(countries, continent.countries);
+        return Objects.equals(name, continent.name) &&
+                Objects.equals(countries, continent.countries);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(countries);
+        return Objects.hash(name, countries);
     }
 }
