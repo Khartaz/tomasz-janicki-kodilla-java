@@ -1,6 +1,7 @@
 package com.kodilla.patterns.challenges;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MovieStore {
@@ -28,10 +29,12 @@ public class MovieStore {
     }
 
     public void moviesFlatMap() {
-                Stream.of(getMovies())
+               String moviesList = Stream.of(getMovies())
                         .flatMap(v->v.values().stream())
                         .flatMap(v->v.stream())
-                        .forEach(s ->System.out.print(s +"!"));
+                        .collect(Collectors.joining("!"));
+
+               System.out.print(moviesList);
     }
 
     public static void main(String[] args) {
