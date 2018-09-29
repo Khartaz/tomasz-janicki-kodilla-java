@@ -8,13 +8,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.time.temporal.ChronoUnit.DAYS;
-import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
@@ -79,7 +76,6 @@ public class BoardTestSuite {
         project.addTaskList(taskListDone);
         return project;
     }
-
     @Test
     public void testAddTaskList() {
         //Given
@@ -123,7 +119,6 @@ public class BoardTestSuite {
         Assert.assertEquals(1, tasks.size());
         Assert.assertEquals("HQLs for analysis", tasks.get(0).getTitle());
     }
-
     @Test
     public void testAddTaskListFindLongTasks() {
         //Given
@@ -155,16 +150,7 @@ public class BoardTestSuite {
                         .flatMap(tl -> tl.getTasks().stream())
                         .mapToLong(t -> DAYS.between(t.getCreated(), LocalDate.now()))
                         .average().getAsDouble());
-        //System.out.println(tasks);
         //Then
         Assert.assertEquals(10, tasks);
     }
 }
-
-/*
-double tasks = project.getTaskLists().stream()
-                .filter(averageTasks::contains)
-                .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
-                .filter()
- */
