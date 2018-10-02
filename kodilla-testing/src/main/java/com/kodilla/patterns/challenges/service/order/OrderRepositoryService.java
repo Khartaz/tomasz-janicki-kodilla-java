@@ -1,15 +1,17 @@
 package com.kodilla.patterns.challenges.service.order;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class OrderRepositoryService implements OrderRepository {
-   public Map<User, OrderInfo> addOrder(User user, OrderInfo orderInfo) {
-       Map<User, OrderInfo> cart = new LinkedHashMap<>();
-       cart.put(user, orderInfo);
+    Map<User, List<OrderInfo>> userOrders = new LinkedHashMap<>();
 
-       System.out.println("Products added to cart: " + cart.size());
-
-       return cart;
+   public Map<User, List<OrderInfo>> addOrder(User user, OrderInfo orderInfo) {
+       if(userOrders.get(user) != null) {
+           userOrders.get(user).add(orderInfo);
+       } else {
+           userOrders.put(user, Collections.singletonList(orderInfo));
+       }
+       return userOrders;
    }
 }
