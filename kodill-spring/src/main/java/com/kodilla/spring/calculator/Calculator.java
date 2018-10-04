@@ -13,7 +13,7 @@ public class Calculator {
     }
 
     public double sub(double a, double b) {
-       return display.displayValue(a - b);
+        return display.displayValue(a - b);
     }
 
     public double mul(double a, double b) {

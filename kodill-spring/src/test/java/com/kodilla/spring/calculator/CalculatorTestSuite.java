@@ -22,6 +22,7 @@ public class CalculatorTestSuite {
         //Then
         Assert.assertEquals(6.7, addResult, 0.001);
     }
+
     @Test
     public void testCalculationsSub() {
         //Given
@@ -33,6 +34,7 @@ public class CalculatorTestSuite {
         //Then
         Assert.assertEquals(7.0, subResult, 0.001);
     }
+
     @Test
     public void testCalculationsMul() {
         //Given
@@ -44,6 +46,7 @@ public class CalculatorTestSuite {
         //Then
         Assert.assertEquals(32, mulResult, 0.001);
     }
+
     @Test
     public void testCalculationsDiv() {
         //Given
