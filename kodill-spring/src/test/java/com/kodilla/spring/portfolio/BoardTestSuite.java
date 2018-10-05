@@ -5,9 +5,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BoardTestSuite {
     @Test
     public void testTaskAddDoneList() {
@@ -15,14 +12,13 @@ public class BoardTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        TaskList taskList = context.getBean(TaskList.class);
-        List<String> expected = new ArrayList<>();
-        expected.add("s");
         //When
         board.getDoneList().addTask("s");
-        List<String> result = taskList.getTasks();
         //Then
-        Assert.assertEquals(expected, result);
+        Assert.assertEquals(1, board.getDoneList().getTasks().size());
+        Assert.assertEquals(0, board.getToDoList().getTasks().size());
+        Assert.assertEquals(0, board.getInProgressList().getTasks().size());
+        Assert.assertEquals("s", board.getDoneList().getTasks().get(0));
     }
     @Test
     public void testAddTaskToDoList() {
@@ -30,14 +26,14 @@ public class BoardTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        TaskList taskList = context.getBean(TaskList.class);
-        List<String> expected = new ArrayList<>();
-        expected.add("u");
         //When
-        board.getToDoList().addTask("u");
-        List<String> result = taskList.getTasks();
+        board.getToDoList().addTask("todo");
         //Then
-        Assert.assertEquals(expected, result);
+        Assert.assertEquals(1, board.getToDoList().getTasks().size());
+        Assert.assertEquals(0, board.getDoneList().getTasks().size());
+        Assert.assertEquals(0, board.getInProgressList().getTasks().size());
+        Assert.assertEquals("todo", board.getToDoList().getTasks().get(0));
+
     }
     @Test
     public void testAddTaskAddInProgressList() {
@@ -45,13 +41,12 @@ public class BoardTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        TaskList taskList = context.getBean(TaskList.class);
-        List<String> expected = new ArrayList<>();
-        expected.add("p");
         //When
-        board.getToDoList().addTask("p");
-        List<String> result = taskList.getTasks();
+        board.getInProgressList().addTask("pojo");
         //Then
-        Assert.assertEquals(expected, result);
+        Assert.assertEquals(1, board.getInProgressList().getTasks().size());
+        Assert.assertEquals(0, board.getDoneList().getTasks().size());
+        Assert.assertEquals(0, board.getToDoList().getTasks().size());
+        Assert.assertEquals("pojo", board.getInProgressList().getTasks().get(0));
     }
 }
