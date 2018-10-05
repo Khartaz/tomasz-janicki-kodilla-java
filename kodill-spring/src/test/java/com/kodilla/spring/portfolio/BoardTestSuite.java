@@ -19,7 +19,7 @@ public class BoardTestSuite {
         List<String> expected = new ArrayList<>();
         expected.add("s");
         //When
-        board.getDoneList().tasks.add("s");
+        board.getDoneList().addTask("s");
         List<String> result = taskList.getTasks();
         //Then
         Assert.assertEquals(expected, result);
@@ -34,7 +34,7 @@ public class BoardTestSuite {
         List<String> expected = new ArrayList<>();
         expected.add("u");
         //When
-        board.getToDoList().tasks.add("u");
+        board.getToDoList().addTask("u");
         List<String> result = taskList.getTasks();
         //Then
         Assert.assertEquals(expected, result);
@@ -49,7 +49,7 @@ public class BoardTestSuite {
         List<String> expected = new ArrayList<>();
         expected.add("p");
         //When
-        board.getToDoList().tasks.add("p");
+        board.getToDoList().addTask("p");
         List<String> result = taskList.getTasks();
         //Then
         Assert.assertEquals(expected, result);

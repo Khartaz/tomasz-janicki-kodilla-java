@@ -1,7 +1,6 @@
 package com.kodilla.spring.portfolio;
 
 public final class Board {
-    TaskList taskList;
     private final TaskList toDoList;
     private final TaskList inProgressList;
     private final TaskList doneList;
@@ -23,11 +22,6 @@ public final class Board {
     public TaskList getDoneList() {
         return doneList;
     }
-
-    public void getTasks() {
-
-    }
-
     @Override
     public String toString() {
         return "Board{" +

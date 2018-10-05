@@ -14,6 +14,7 @@ public class TaskList {
         return new ArrayList<>(tasks);
     }
 
-
-
+    public List<String> addTask(String task) {
+        return new ArrayList<>(tasks);
+    }
 }
