@@ -16,8 +16,8 @@ public class BoardTestSuite {
         board.getDoneList().addTask("s");
         //Then
         Assert.assertEquals(1, board.getDoneList().getTasks().size());
-        Assert.assertEquals(0, board.getToDoList().getTasks().size());
-        Assert.assertEquals(0, board.getInProgressList().getTasks().size());
+        Assert.assertTrue(board.getToDoList().getTasks().isEmpty());
+        Assert.assertTrue(board.getInProgressList().getTasks().isEmpty());
         Assert.assertEquals("s", board.getDoneList().getTasks().get(0));
     }
     @Test
@@ -30,8 +30,8 @@ public class BoardTestSuite {
         board.getToDoList().addTask("todo");
         //Then
         Assert.assertEquals(1, board.getToDoList().getTasks().size());
-        Assert.assertEquals(0, board.getDoneList().getTasks().size());
-        Assert.assertEquals(0, board.getInProgressList().getTasks().size());
+        Assert.assertTrue(board.getDoneList().getTasks().isEmpty());
+        Assert.assertTrue(board.getInProgressList().getTasks().isEmpty());
         Assert.assertEquals("todo", board.getToDoList().getTasks().get(0));
 
     }
@@ -45,8 +45,8 @@ public class BoardTestSuite {
         board.getInProgressList().addTask("pojo");
         //Then
         Assert.assertEquals(1, board.getInProgressList().getTasks().size());
-        Assert.assertEquals(0, board.getDoneList().getTasks().size());
-        Assert.assertEquals(0, board.getToDoList().getTasks().size());
+        Assert.assertTrue(board.getDoneList().getTasks().isEmpty());
+        Assert.assertTrue(board.getToDoList().getTasks().isEmpty());
         Assert.assertEquals("pojo", board.getInProgressList().getTasks().get(0));
     }
 }
