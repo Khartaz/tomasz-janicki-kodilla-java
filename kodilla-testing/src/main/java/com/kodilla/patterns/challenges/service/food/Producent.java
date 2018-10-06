@@ -1,38 +1,20 @@
 package com.kodilla.patterns.challenges.service.food;
 
-import java.util.*;
+import java.util.List;
 
-public class Manufacturer implements ProcessService {
+public class Producent {
+    private String producentTitle;
+    List<ProductInfo> productInfoList;
 
-    public Map<String, List<Product>> createManufacturer(String manufacturerTitle, Product product) {
-        List<Product> productList = new LinkedList<>();
-        productList.add(new Product(product.getProductName(), product.getQuantity()));
-
-        Map<String, List<Product>> manufacturersList = new HashMap<>();
-        manufacturersList.put(manufacturerTitle, productList);
-
-        return manufacturersList;
+    public Producent(String producentTitle) {
+        this.producentTitle = producentTitle;
     }
 
-    public void process() {
-
+    public String getProducentTitle() {
+        return producentTitle;
     }
 
-
-
-    public static void main(String[] args) {
-
+    public List<ProductInfo> getProductInfoList() {
+        return productInfoList;
     }
 }
-
-/*
-private List<Product> productList = new LinkedList<>();
-
-public void addProduct(Product product) {
-        productList.add(product);
-    }
-
-    public void removeProduct(Product product) {
-        productList.remove(product);
-    }
- */
