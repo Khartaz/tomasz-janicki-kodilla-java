@@ -32,7 +32,7 @@ public class Application {
 
 
         DistributorRequest distributorRequest = new DistributorRequest(producentList);
-        ProducentDTO producentDTO = new ProducentDTO(producentList);
+        DistributorDTO distributorDTO = new DistributorDTO(producentList, productInfoList);
 
 
 
