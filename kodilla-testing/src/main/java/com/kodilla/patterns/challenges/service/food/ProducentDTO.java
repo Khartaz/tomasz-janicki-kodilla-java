@@ -1,13 +1,15 @@
 package com.kodilla.patterns.challenges.service.food;
 
-public class ProducentDTO {
-    private Producent producent;
+import java.util.List;
 
-    public ProducentDTO(Producent producent) {
+public class ProducentDTO {
+    private List<Producent> producent;
+
+    public ProducentDTO(List<Producent> producent) {
         this.producent = producent;
     }
 
-    public Producent getProducent() {
+    public List<Producent> getProducent() {
         return producent;
     }
 }

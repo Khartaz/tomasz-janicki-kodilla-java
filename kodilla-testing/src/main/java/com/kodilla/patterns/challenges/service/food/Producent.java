@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Producent {
     private String producentTitle;
-    List<ProductInfo> productInfoList;
+    private List<ProductInfo> productInfoList;
 
     public Producent(String producentTitle) {
         this.producentTitle = producentTitle;
@@ -17,4 +17,6 @@ public class Producent {
     public List<ProductInfo> getProductInfoList() {
         return productInfoList;
     }
+
+
 }

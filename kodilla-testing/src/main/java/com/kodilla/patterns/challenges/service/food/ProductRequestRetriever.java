@@ -1,5 +1,6 @@
 package com.kodilla.patterns.challenges.service.food;
 
+
 public class ProductRequestRetriever {
 
     public ProductRequest retrieve() {

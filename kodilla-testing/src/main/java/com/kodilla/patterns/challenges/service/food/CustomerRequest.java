@@ -6,10 +6,9 @@ public class CustomerRequest {
     private ProductInfo productInfo;
 
 
-    public CustomerRequest(Customer customer, Distributor distributor, ProductInfo productInfo) {
+    public CustomerRequest(Customer customer, Distributor distributor) {
         this.customer = customer;
         this.distributor = distributor;
-        this.productInfo = productInfo;
     }
 
     public Customer getCustomer() {
