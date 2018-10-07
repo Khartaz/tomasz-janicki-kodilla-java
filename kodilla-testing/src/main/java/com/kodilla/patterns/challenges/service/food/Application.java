@@ -1,7 +1,6 @@
 package com.kodilla.patterns.challenges.service.food;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -28,7 +27,10 @@ public class Application {
 
         Customer customer = new Customer("Tom", "Tomms");
         CustomerRequest customerRequest = new CustomerRequest(customer, distributor1);
-        CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO(distributor1, productInfoList);
+
+        Map<Distributor, List<ProductInfo>> distributorProductInfoList = new LinkedHashMap<>();
+        distributorProductInfoList.put(distributor1, productInfoList);
+        CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO(distributorProductInfoList);
 
 
         DistributorRequest distributorRequest = new DistributorRequest(producentList);
