@@ -1,25 +1,18 @@
 package com.kodilla.patterns.challenges.service.food;
 
+import java.util.List;
+import java.util.Map;
+
 public class CustomerRequest {
-    private Customer customer;
-    private Distributor distributor;
-    private ProductInfo productInfo;
+    private Map<Distributor, List<ProductInfo>> distributorProductList;
 
-
-    public CustomerRequest(Customer customer, Distributor distributor) {
-        this.customer = customer;
-        this.distributor = distributor;
+    public CustomerRequest(Map<Distributor, List<ProductInfo>> distributorProductList) {
+        this.distributorProductList = distributorProductList;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Map<Distributor, List<ProductInfo>> getDistributorProductList() {
+        return distributorProductList;
     }
 
-    public Distributor getDistributor() {
-        return distributor;
-    }
 
-    public ProductInfo getProductInfo() {
-        return productInfo;
-    }
 }

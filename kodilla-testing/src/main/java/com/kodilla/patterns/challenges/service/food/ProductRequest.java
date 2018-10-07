@@ -1,19 +1,16 @@
 package com.kodilla.patterns.challenges.service.food;
 
-public class ProductRequest {
-    private Producent producent;
-    private ProductInfo productInfo;
+import java.util.List;
+import java.util.Map;
 
-    public ProductRequest(Producent producent, ProductInfo productInfo) {
-        this.producent = producent;
+public class ProductRequest {
+    private Map<Producent, List<ProductInfo>> productInfo;
+
+    public ProductRequest(Map<Producent, List<ProductInfo>> productInfo) {
         this.productInfo = productInfo;
     }
 
-    public Producent getProducent() {
-        return producent;
-    }
-
-    public ProductInfo getProductInfo() {
+    public Map<Producent, List<ProductInfo>> getProductInfo() {
         return productInfo;
     }
 }

@@ -1,16 +1,16 @@
 package com.kodilla.patterns.challenges.service.food;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DistributorRequest {
-    private List<Producent> producent;
+    private Map<Producent, List<ProductInfo>> producentProductInfoList;
 
-    public DistributorRequest(List<Producent> producent) {
-        this.producent = producent;
+    public DistributorRequest(Map<Producent, List<ProductInfo>> producentProductInfoList) {
+        this.producentProductInfoList = producentProductInfoList;
     }
 
-    public List<Producent> getProducent() {
-        return new ArrayList<>(producent);
+    public Map<Producent, List<ProductInfo>> getProducentProductInfoList() {
+        return producentProductInfoList;
     }
 }
