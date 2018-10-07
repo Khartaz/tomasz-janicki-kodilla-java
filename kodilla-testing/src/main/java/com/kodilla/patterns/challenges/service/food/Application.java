@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-        Distributor distributor1 = new Distributor("Food2Door");
+        /* Distributor distributor1 = new Distributor("Food2Door");
         List<Distributor> distributorList = new ArrayList<>();
         distributorList.add(distributor1);
 
@@ -38,8 +38,8 @@ public class Application {
 
 
 
-        ProductRequestRetriever productRequestRetriever = new ProductRequestRetriever();
-        ProductRequest productRequest = productRequestRetriever.retrieve();
-
+        ProducentRequestRetriever producentRequestRetriever = new ProducentRequestRetriever();
+        ProducentRequest producentRequest = producentRequestRetriever.retrieve();
+        */
     }
 }

@@ -1,6 +1,6 @@
 package com.kodilla.patterns.challenges.service.food;
 
-public class OrderProcessor {
+public class OrderProcessor { /*
     private CustomerResponseDTO customerResponseDTO;
     private OrderService orderService;
     private InformationService informationService;
@@ -22,5 +22,5 @@ public class OrderProcessor {
             informationService.inform(customerRequest.getCustomer());
             orderService.makeOrder(customerRequest.getCustomer(), customerRequest.getProductInfo(), customerRequest.getDistributor());
         } return new CustomerResponseDTO(customerResponseDTO.getDistributorList(), customerResponseDTO.getProductInfoList());
-    }
+    } */
 }
