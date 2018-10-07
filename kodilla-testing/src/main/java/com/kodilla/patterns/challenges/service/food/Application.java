@@ -28,7 +28,7 @@ public class Application {
 
         Customer customer = new Customer("Tom", "Tomms");
         CustomerRequest customerRequest = new CustomerRequest(customer, distributor1);
-        CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO(distributorList, productInfoList);
+        CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO(distributor1, productInfoList);
 
 
         DistributorRequest distributorRequest = new DistributorRequest(producentList);
