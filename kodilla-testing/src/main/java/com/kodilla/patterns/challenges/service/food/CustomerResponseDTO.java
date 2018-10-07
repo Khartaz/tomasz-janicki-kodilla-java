@@ -1,18 +1,20 @@
 package com.kodilla.patterns.challenges.service.food;
 
 import java.util.List;
+import java.util.Map;
 
 public class CustomerResponseDTO {
-    private List<Distributor> distributorList;
+    private Distributor distributor;
     private List<ProductInfo> productInfoList;
+    private Map<Distributor, ProductInfo> distributorProductInfoList;
 
-    public CustomerResponseDTO(List<Distributor> distributorList, List<ProductInfo> productInfoList) {
-        this.distributorList = distributorList;
+    public CustomerResponseDTO(Distributor distributor, List<ProductInfo> productInfoList) {
+        this.distributor = distributor;
         this.productInfoList = productInfoList;
     }
 
-    public List<Distributor> getDistributorList() {
-        return distributorList;
+    public Distributor getDistributor() {
+        return distributor;
     }
 
     public List<ProductInfo> getProductInfoList() {
