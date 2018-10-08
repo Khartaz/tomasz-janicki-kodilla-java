@@ -1,26 +1,21 @@
 package com.kodilla.patterns.challenges.service.food;
 
-public class OrderProcessor { /*
-    private CustomerResponseDTO customerResponseDTO;
-    private OrderService orderService;
-    private InformationService informationService;
+public class OrderProcessor {
+    private ProducentService producentService;
+    private Customer customer;
 
-    public OrderProcessor(final CustomerResponseDTO customerResponseDTO,
-                          final OrderService orderService,
-                          final InformationService informationService) {
-        this.customerResponseDTO = customerResponseDTO;
-        this.orderService = orderService;
-        this.informationService = informationService;
+    public OrderProcessor(final ProducentService producentService) {
+        this.producentService = producentService;
     }
 
-    public CustomerResponseDTO process(final CustomerRequest customerRequest) {
-        boolean isOrdered = orderService.makeOrder(customerRequest.getCustomer(),
-                customerRequest.getProductInfo(),
-                customerRequest.getDistributor());
+    public DistributorDTO process(ProducentRequest producentRequest)  {
+        boolean isOrdered = producentService.order(producentRequest.getProductInfo());
 
-        if(isOrdered) {
-            informationService.inform(customerRequest.getCustomer());
-            orderService.makeOrder(customerRequest.getCustomer(), customerRequest.getProductInfo(), customerRequest.getDistributor());
-        } return new CustomerResponseDTO(customerResponseDTO.getDistributorList(), customerResponseDTO.getProductInfoList());
-    } */
+        if(isOrdered){
+
+            return new DistributorDTO(producentRequest.getProductInfo(), true);
+        } else {
+            return new DistributorDTO(producentRequest.getProductInfo(), false);
+        }
+    }
 }

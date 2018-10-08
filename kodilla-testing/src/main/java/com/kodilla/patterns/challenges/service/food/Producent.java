@@ -19,4 +19,12 @@ public class Producent {
     public String getProducentTitle() {
         return producentTitle;
     }
+
+    @Override
+    public String toString() {
+        return "Producent{" +
+                "producentTitle='" + producentTitle + '\'' +
+                ", producentProductList=" + producentProductList +
+                '}';
+    }
 }

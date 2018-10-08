@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ProductRepository {
 
-    private List<ProductInfo> getProductsByProducent(Producent producent) {
+    public List<ProductInfo> getProductsByProducent(Producent producent) {
         ProductInfo product1 = new ProductInfo("Cherry", 100);
         ProductInfo product2 = new ProductInfo("Choco", 50);
         ProductInfo product3 = new ProductInfo("Cake", 120);
@@ -17,6 +17,6 @@ public class ProductRepository {
         productInfoList.add(product3);
         productInfoList.add(product4);
 
-        return productInfoList;
+        return new ArrayList<>(productInfoList);
     }
 }

@@ -1,21 +1,14 @@
 package com.kodilla.patterns.challenges.service.food;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 
 public class DistributorDTO {
+    private List<ProductInfo> producentProductList;
+    private boolean isOrdered;
 
-    private Map<Producent, List<ProductInfo>> producentProductList;
-
-
-
-    public Map<Producent, List<ProductInfo>> getProducentProductList() {
-        return producentProductList;
+    public DistributorDTO(List<ProductInfo> producentProductList, boolean isOrdered) {
+        this.producentProductList = producentProductList;
+        this.isOrdered = isOrdered;
     }
-
-
-
-    }
+}
 

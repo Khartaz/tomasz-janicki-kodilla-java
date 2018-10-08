@@ -1,5 +1,7 @@
 package com.kodilla.patterns.challenges.service.food;
 
-public class ProducentService {
+import java.util.List;
 
+public interface ProducentService {
+    boolean order(List<ProductInfo> productInfoList);
 }
