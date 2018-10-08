@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DistributorDTO {
-    ProducentRequestRetriever producentRequestRetriever;
+
     private Map<Producent, List<ProductInfo>> producentProductList;
 
 
@@ -17,9 +17,9 @@ public class DistributorDTO {
 
 
     public Map<Producent, List<ProductInfo>> requestRetrieve() {
-            Map<Producent, List<ProductInfo>> result1 = producentRequestRetriever.retrieve().getProductInfo();
+
            /* List<ProductInfo> result =
                    result1.entrySet().stream().flatMap(v -> v.getValue()).collect(Collectors.toList()); */
-       return result1;
+       return ;
     }
 }
