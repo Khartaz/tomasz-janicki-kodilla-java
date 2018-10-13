@@ -21,7 +21,6 @@ public class LibraryTestSuite {
         library.getBooks().add(book4);
         library.getBooks().add(book5);
 
-        //making a shallow clone of object board
         Library cloneLibrary = null;
         try {
             cloneLibrary = library.shallowCopy();
@@ -30,7 +29,6 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
 
-        //making a deep copy of object board
         Library deepClonedLibrary = null;
         try {
             deepClonedLibrary = library.deepCopy();
@@ -38,10 +36,6 @@ public class LibraryTestSuite {
         } catch (CloneNotSupportedException e) {
             System.out.println(e);
         }
-
-        System.out.println(library);
-        System.out.println(cloneLibrary);
-        System.out.println(deepClonedLibrary);
 
         Assert.assertEquals(5, library.getBooks().size());
         Assert.assertEquals(5, cloneLibrary.getBooks().size());
