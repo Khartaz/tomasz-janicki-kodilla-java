@@ -1,7 +1,6 @@
 package com.kodilla.patterns.challenges.service.food2;
 
 public class CustomerDto {
-
     private String name;
     private String address;
 

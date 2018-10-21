@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ProducentService {
-
     List<Product> productList = new ArrayList<>();
 
     public boolean order(String productName,  Long count) {

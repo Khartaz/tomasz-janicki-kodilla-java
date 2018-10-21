@@ -1,7 +1,6 @@
 package com.kodilla.patterns.challenges.service.food2;
 
 public class OrderItemDto {
-
     private String productName;
     private Long count;
 

@@ -3,7 +3,6 @@ package com.kodilla.patterns.challenges.service.food2;
 import java.util.List;
 
 public class OrderRequest {
-
     private CustomerDto customer;
     private List<OrderItemDto> orders;
 
