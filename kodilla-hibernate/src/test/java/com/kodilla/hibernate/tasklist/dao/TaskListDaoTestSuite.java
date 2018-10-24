@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.tasklist.dao;
 
+import com.kodilla.hibernate.task.Task;
+import com.kodilla.hibernate.task.TaskFinancialDetails;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -16,11 +19,12 @@ public class TaskListDaoTestSuite {
     @Autowired
     TaskListDao taskListDao;
     private final static String DESCRIPTION = "Test of tasklist";
+    private final static String LISTNAME = "New list";
 
     @Test
     public void testTaskListDaoSave() {
         //Given
-        TaskList taskList = new TaskList("New list", DESCRIPTION);
+        TaskList taskList = new TaskList(LISTNAME, DESCRIPTION);
         //When
         taskListDao.save(taskList);
         //Then
@@ -34,7 +38,7 @@ public class TaskListDaoTestSuite {
     @Test
     public void testFindByListName() {
         //Given
-        TaskList taskList = new TaskList("New list", DESCRIPTION);
+        TaskList taskList = new TaskList(LISTNAME, DESCRIPTION);
         taskListDao.save(taskList);
         String listName = taskList.getListName();
         //When
@@ -45,4 +49,6 @@ public class TaskListDaoTestSuite {
         int id = readTaskList.get(0).getId();
         taskListDao.delete(id);
     }
+
+
 }
