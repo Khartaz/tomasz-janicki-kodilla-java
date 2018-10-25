@@ -50,5 +50,28 @@ public class TaskListDaoTestSuite {
         taskListDao.delete(id);
     }
 
+    @Test
+    public void testTaskListDaoSaveWithTasks() {
+        //Given
+        Task task = new Task("Test: Learn Hibernate", 14);
+        Task task2 = new Task("Test: Write some entities", 3);
+        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(20), false);
+        TaskFinancialDetails taskFinancialDetails2 = new TaskFinancialDetails(new BigDecimal(10), false);
+        task.setTaskFinancialDetails(taskFinancialDetails);
+        task2.setTaskFinancialDetails(taskFinancialDetails2);
+        TaskList taskList = new TaskList(LISTNAME, "ToDo tasks");
+        taskList.getTasks().add(task);
+        taskList.getTasks().add(task2);
+        task.setTaskList(taskList);
+        task2.setTaskList(taskList);
+        //When
+        taskListDao.save(taskList);
+        int id = taskList.getId();
+        //Then
+        Assert.assertNotEquals(0, id);
+        //CleanUp
+        taskListDao.delete(id);
 
+
+    }
 }
