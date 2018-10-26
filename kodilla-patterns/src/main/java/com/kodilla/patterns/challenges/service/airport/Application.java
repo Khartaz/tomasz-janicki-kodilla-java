@@ -6,8 +6,8 @@ public class Application {
 
         System.out.println(airportSearch.searchFlightFrom("Rzeszow"));
 
-        //System.out.println(airportSearch.searchFlightTo("Eindhoven"));
+        System.out.println(airportSearch.searchFlightTo("Eindhoven"));
 
-        System.out.println(airportSearch.searchFlightFromByTo("Gdansk", "Londyn"));
+        System.out.println(airportSearch.searchFlightFromByTo("Londyn", "Rzeszow"));
     }
 }

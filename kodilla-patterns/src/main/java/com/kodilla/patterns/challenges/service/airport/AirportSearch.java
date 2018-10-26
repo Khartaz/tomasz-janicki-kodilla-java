@@ -3,21 +3,19 @@ package com.kodilla.patterns.challenges.service.airport;
 import java.util.*;
 
 public class AirportSearch {
-    private final Map<String, List<String>> airportsMap = new HashMap<>();
-
-    public List<String> searchFlightFrom(String from) {
+    private final static Map<String, List<String>> airportsMap = new HashMap<>();
+    static {
         airportsMap.put("Krakow", Arrays.asList("Londyn", "Warszawa", "Rzeszow", "Eindhoven"));
         airportsMap.put("Rzeszow", Arrays.asList("Gdansk", "Warszawa", "Eindhoven", "Krakow"));
+    }
 
+    public List<String> searchFlightFrom(String from) {
         List<String> airports = airportsMap.get(from);
 
         return airports;
     }
 
     public List<String> searchFlightTo(String from) {
-        airportsMap.put("Krakow", Arrays.asList("Londyn", "Warszawa", "Rzeszow", "Eindhoven"));
-        airportsMap.put("Rzeszow", Arrays.asList("Gdansk", "Warszawa", "Eindhoven", "Krakow"));
-
         List<String> airports = new ArrayList<>();
         try {
             airportsMap.entrySet().forEach(set -> {
@@ -35,28 +33,24 @@ public class AirportSearch {
         return airports;
     }
 
-    public List<String> searchFlightFromByTo(String from, String airportTo) {
-        airportsMap.put("Krakow", Arrays.asList("Londyn", "Warszawa", "Rzeszow", "Eindhoven"));
-        airportsMap.put("Rzeszow", Arrays.asList("Gdansk", "Warszawa", "Eindhoven", "Krakow"));
-
-        List<String> airportsFrom = new ArrayList<>();
-        List<String> airportsTo = new ArrayList<>();
-
-        try {
-            airportsMap.entrySet().forEach(set -> {
-                Optional<String> to = set.getValue().stream()
-                        .filter(v -> v.equals(from))
-                        .findFirst();
-
-                if (to.get() != null) {
-                    airportsFrom.add(set.getKey());
-                }
-
-            });
-        } catch (NoSuchElementException e) {
-            System.out.println("Brak polaczenia");
+    public List<String> searchFlightFromByTo(String to, String via) {
+        List<String> airports = new ArrayList<>();
+        List<String> startAirports = new ArrayList<>();
+        for (Map.Entry<String, List<String>> entry : airportsMap.entrySet()) {
+            entry.getValue().stream()
+                    .filter(p -> p.equals(to))
+                    .findFirst()
+                    .ifPresent(v -> airports.add(entry.getKey()));
         }
-        return airportsTo;
+
+        System.out.println(airports);
+
+        airports.forEach(v -> airportsMap.get(v).stream()
+                .filter(p -> p.equals(via))
+                .findFirst()
+                .ifPresent(x -> startAirports.add(x)));
+
+        return startAirports;
     }
 
     @Override
