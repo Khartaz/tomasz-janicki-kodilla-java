@@ -28,11 +28,10 @@ public class InvoiceDaoTestSuite {
         Item item1 = new Item(new BigDecimal(200), 23, new BigDecimal(34), product1);
         Item item2 = new Item(new BigDecimal(58), 1, new BigDecimal(202), product2);
         Item item3 = new Item(new BigDecimal(100), 33, new BigDecimal(1), product3);
-        Invoice invoice1 = new Invoice("FV2018");
+        Invoice invoice1 = new Invoice("FV2018/10/25");
         invoice1.getItems().add(item1);
         invoice1.getItems().add(item2);
         invoice1.getItems().add(item3);
-        System.out.println(invoice1);
         //When
         invoiceDao.save(invoice1);
         int invoiceId = invoice1.getId();
