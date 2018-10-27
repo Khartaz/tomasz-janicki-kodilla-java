@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,11 +24,16 @@ public class InvoiceDaoTestSuite {
         Product product1 = new Product("Product1");
         Product product2 = new Product("Product2");
         Product product3 = new Product("Product3");
+
         Item item1 = new Item(new BigDecimal(200), 23, new BigDecimal(34), product1);
         Item item2 = new Item(new BigDecimal(58), 1, new BigDecimal(202), product2);
         Item item3 = new Item(new BigDecimal(100), 33, new BigDecimal(1), product3);
+
         Invoice invoice1 = new Invoice("FV2018/10/25");
-        invoice1.setItems(Arrays.asList(item1, item2, item3));
+
+        invoice1.getItems().add(item1);
+        invoice1.getItems().add(item2);
+        invoice1.getItems().add(item3);
         //When
         invoiceDao.save(invoice1);
         int invoiceId = invoice1.getId();
