@@ -11,6 +11,7 @@ public class Invoice {
     private int id;
     private String number;
     private List<Item> items = new ArrayList<>();
+    private Invoice invoice;
 
     public Invoice() {
     }
@@ -34,9 +35,9 @@ public class Invoice {
 
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "product",
+            mappedBy = "invoice",
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.LAZY
     )
     public List<Item> getItems() {
         return items;
@@ -53,4 +54,5 @@ public class Invoice {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
 }

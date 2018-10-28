@@ -12,6 +12,7 @@ public class Item {
     private int quantity;
     private BigDecimal value;
     private Product product;
+    private Invoice invoice;
 
     public Item() {
     }
@@ -70,11 +71,17 @@ public class Item {
 
     @ManyToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.LAZY
     )
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
 
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoice() {
+        return invoice;
+    }
 }
