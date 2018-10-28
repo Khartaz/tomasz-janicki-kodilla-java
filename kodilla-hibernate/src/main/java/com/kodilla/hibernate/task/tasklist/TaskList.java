@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.tasklist;
+package com.kodilla.hibernate.task.tasklist;
 
 
 import com.kodilla.hibernate.task.Task;
@@ -22,6 +22,7 @@ public class TaskList {
         this.listName = listName;
         this.description = description;
     }
+
     @Id
     @GeneratedValue
     @NotNull

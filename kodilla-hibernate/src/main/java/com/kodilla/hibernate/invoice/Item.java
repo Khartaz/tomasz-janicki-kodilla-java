@@ -49,6 +49,22 @@ public class Item {
         return value;
     }
 
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "PRODUCT_ID")
+    public Product getProduct() {
+        return product;
+    }
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
     private void setId(int id) {
         this.id = id;
     }
@@ -69,19 +85,7 @@ public class Item {
         this.product = product;
     }
 
-    @ManyToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    @JoinColumn(name = "PRODUCT_ID")
-    public Product getProduct() {
-        return product;
-    }
-
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "INVOICE_ID")
-    public Invoice getInvoice() {
-        return invoice;
+    private void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 }
