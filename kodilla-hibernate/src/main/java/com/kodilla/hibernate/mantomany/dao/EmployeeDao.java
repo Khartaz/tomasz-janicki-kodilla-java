@@ -1,6 +1,6 @@
 package com.kodilla.hibernate.mantomany.dao;
 
-import com.kodilla.hibernate.mantomany.Company;
+import com.kodilla.hibernate.mantomany.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -11,9 +11,8 @@ import java.util.List;
 
 @Transactional
 @Repository
-public interface CompanyDao extends CrudRepository <Company, Integer> {
+public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
-    @Query(nativeQuery = true)
-    List<Company> findByFirstDigits(@Param("DIGIT") String companyName);
+    @Query
+    List<Employee> findByLastName(@Param("LASTNAME") String lastName);
 }
-//@Param("STRING") String string
