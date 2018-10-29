@@ -46,18 +46,6 @@ public class Employee {
         return lastName;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    private void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    private void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
@@ -70,5 +58,17 @@ public class Employee {
 
     private void setCompanies(List<Company> companies) {
         this.companies = companies;
+    }
+
+    private void setId(int id) {
+        this.id = id;
+    }
+
+    private void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    private void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

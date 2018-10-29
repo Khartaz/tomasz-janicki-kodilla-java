@@ -7,8 +7,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.findByFirstDigits",
-        query = "SELECT * FROM COMPANIES" +
-                " WHERE COMPANY_NAME LIKE :DIGIT'%'",
+        query = "SELECT * FROM COMPANIES WHERE MID(COMPANY_NAME, 1, 3) = :DIGIT",
         resultClass = Company.class
 )
 @Entity
