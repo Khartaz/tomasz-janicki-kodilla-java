@@ -17,11 +17,12 @@ public class Item {
     public Item() {
     }
 
-    public Item(BigDecimal price, int quantity, BigDecimal value, Product product) {
+    public Item(BigDecimal price, int quantity, BigDecimal value, Product product, Invoice invoice) {
         this.price = price;
         this.quantity = quantity;
         this.value = value;
         this.product = product;
+        this.invoice = invoice;
     }
 
     @Id
@@ -49,10 +50,7 @@ public class Item {
         return value;
     }
 
-    @ManyToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
+    @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
