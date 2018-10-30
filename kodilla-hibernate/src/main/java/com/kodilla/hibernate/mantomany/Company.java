@@ -7,7 +7,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.findByFirstDigits",
-        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME REGEXP :DIGIT",
+        query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :DIGIT",
         resultClass = Company.class
 )
 @Entity
@@ -54,4 +54,5 @@ public class Company {
     private void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
+
 }
