@@ -8,13 +8,13 @@ import java.util.Map;
 public class ProducentService {
     List<Product> productList = new ArrayList<>();
 
-    public boolean order(String productName,  Long count) {
+    public boolean order(Product productName,  Long count) {
 
-        String producent = productList.stream()
-                .filter(p -> productName.equals(p.getProducent()))
+
+        Product producent = productList.stream()
+                .filter(p -> p.getProductName().equals(productName))
                 .findAny()
-                .map(Product::getProducent)
-                .orElse(null);
+                .orElse(productName);
 
         if(producent != null) {
             System.out.println("Pobrano od producenta " + producent + "produkt: " + productName
