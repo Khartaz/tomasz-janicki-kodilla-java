@@ -4,12 +4,19 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.findByFirstDigits",
+                query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :DIGIT",
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.findByArg",
+                query = "SELECT * FROM  COMPANIES WHERE COMPANY_NAME LIKE '%':ARG'%'",
+                resultClass = Company.class
+        )
+})
 
-@NamedNativeQuery(
-        name = "Company.findByFirstDigits",
-        query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :DIGIT",
-        resultClass = Company.class
-)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

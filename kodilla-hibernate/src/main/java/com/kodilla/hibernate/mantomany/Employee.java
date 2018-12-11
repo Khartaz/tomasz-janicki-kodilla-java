@@ -9,6 +9,11 @@ import java.util.List;
         name = "Employee.findByLastName",
         query = "FROM Employee WHERE lastName = :LASTNAME"
 )
+@NamedNativeQuery(
+        name = "Employee.findByArg",
+        query = "SELECT * FROM  Employees WHERE FIRSTNAME LIKE '%':ARG'%'",
+        resultClass = Employee.class
+)
 
 @Entity
 @Table(name = "EMPLOYEES")
