@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeesAndCompaniesFacade {
     @Autowired
@@ -17,29 +19,23 @@ public class EmployeesAndCompaniesFacade {
     EmployeeDao employeeDao;
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeesAndCompaniesFacade.class);
 
-    public void process(final Company company, String arg) throws EmployeesAndCompaniesException {
-        boolean wasError = false;
-        Employee employee = new Employee();
-        if (company == null) {
-            LOGGER.error(EmployeesAndCompaniesException.COMPANY_NOT_FOUND);
+    public List<Employee>  searchEmployee(String employeeName) throws EmployeesAndCompaniesException {
+
+        LOGGER.info("Searching...");
+        List<Employee> result =  employeeDao.search(employeeName);
+        if (result == null) {
             throw new EmployeesAndCompaniesException(EmployeesAndCompaniesException.ERR_EMPLOYEE_NOT_FOUND);
         }
+        return result;
+    }
 
-        try {
+    public List<Company> searchCompany(String companyName) throws EmployeesAndCompaniesException {
 
-            for (Employee employeeDto1 : company.getEmployees()) {
-                LOGGER.info("Searching...");
-                employeeDao.findByArg(arg);
-                wasError = true;
-                throw new EmployeesAndCompaniesException(EmployeesAndCompaniesException.COMPANY_NOT_FOUND);
-            }
-            for (Company companyDto1 : employee.getCompanies());
-                LOGGER.info("Searching...");
-                companyDao.findByArg(arg);
-        } finally {
-            if (wasError) {
-                LOGGER.info("");
-            }
+        LOGGER.info("Searching...");
+        List<Company> result = companyDao.search(companyName);
+        if (result == null) {
+            throw new EmployeesAndCompaniesException(EmployeesAndCompaniesException.COMPANY_NOT_FOUND);
         }
+        return result;
     }
 }

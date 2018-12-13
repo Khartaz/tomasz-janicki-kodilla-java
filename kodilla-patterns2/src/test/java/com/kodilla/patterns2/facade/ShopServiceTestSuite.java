@@ -77,4 +77,5 @@ public class ShopServiceTestSuite {
             // business exception - should be handled in real application
         }
     }
+
 }

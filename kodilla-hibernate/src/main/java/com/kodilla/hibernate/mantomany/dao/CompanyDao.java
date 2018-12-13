@@ -17,5 +17,5 @@ public interface CompanyDao extends CrudRepository <Company, Integer> {
     List<Company> findByFirstDigits(@Param("DIGIT") String companyName);
 
     @Query(nativeQuery = true)
-    List<Company> findByArg(@Param("ARG") String companyName);
+    List<Company> search(@Param("ARG") String companyName);
 }

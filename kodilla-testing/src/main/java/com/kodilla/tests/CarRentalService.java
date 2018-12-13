@@ -1,9 +1,10 @@
-package com.kodilla.patterns.challenges;
+package com.kodilla.tests;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class CarRentalService {
-    public boolean ren(final User user, final LocalDate carRentFrom, final LocalDate carRentTo) {
+
+    public boolean rent(final User user, final LocalDateTime carRentFrom, final LocalDateTime carRentTo) {
         System.out.println("Renting Caro for " + user.getName() + user.getSurname() +
                             " from " + carRentFrom.toString() + " to: " + carRentTo.toString());
 

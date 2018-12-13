@@ -10,8 +10,8 @@ import java.util.List;
         query = "FROM Employee WHERE lastName = :LASTNAME"
 )
 @NamedNativeQuery(
-        name = "Employee.findByArg",
-        query = "SELECT * FROM  Employees WHERE FIRSTNAME LIKE '%':ARG'%'",
+        name = "Employee.search",
+        query = "SELECT * FROM  EMPLOYEES WHERE FIRSTNAME LIKE CONCAT('%', :ARG ,'%')",
         resultClass = Employee.class
 )
 

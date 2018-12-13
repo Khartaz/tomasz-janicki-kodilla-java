@@ -24,7 +24,6 @@ public class UserTestSuite {
         Assert.assertEquals("Facebook", user2Should);
         Assert.assertEquals("SnapChat", user3Should);
     }
-
     @Test
     public void testIndividualSharingStrategy() {
         //Given

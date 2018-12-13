@@ -1,10 +1,10 @@
 package com.kodilla.tests;
 
-public class RentalToDo {
+public class RentalDto {
     public User user;
-    public boolean isRented;
+    private  boolean isRented;
 
-    public RentalToDo(User user, boolean isRented) {
+    public RentalDto(User user, boolean isRented) {
         this.user = user;
         this.isRented = isRented;
     }

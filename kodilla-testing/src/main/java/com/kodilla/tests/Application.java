@@ -1,10 +1,12 @@
-package com.kodilla.patterns.challenges;
+package com.kodilla.tests;
 
 public class Application {
-    RentRequestRetrievier rentRequestRetrievier = new RentRequestRetrievier();
-    RentRequest rentRequest = rentRequestRetrievier.retrieve();
+    public static void main(String[] args) {
+        RentRequestRetriever rentRequestRetriever = new RentRequestRetriever();
+        RentRequest rentRequest = rentRequestRetriever.retrieve();
 
-    RentalProcessor rentalProcessor = new RentalProcessor(
-            new MailServie(), new CarRentalService(), new CarRentalRepository());
-    rentalProcessor.process(rentRequest);
+        //RentalProcessor rentalProcessor = new RentalProcessor(new CarRentalService(), new CarRentalRepository());
+        //rentalProcessor.process(rentRequest);
+    }
+
 }
