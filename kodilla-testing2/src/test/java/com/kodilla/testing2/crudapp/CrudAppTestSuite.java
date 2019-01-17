@@ -76,7 +76,7 @@ public class CrudAppTestSuite {
         driverTrello.get(TRELLO_URL);
 
         driverTrello.findElement(By.id("user")).sendKeys("tjaygallery@gmail.com");
-        driverTrello.findElement(By.id("password")).sendKeys("hbYs2FPUHPE276c");
+        driverTrello.findElement(By.id("password")).sendKeys("password");
         driverTrello.findElement(By.id("login")).submit();
 
         Thread.sleep(2000);
